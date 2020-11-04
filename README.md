@@ -1,3 +1,4 @@
+
 ansible-teamcity
 =========
 
@@ -28,8 +29,8 @@ External database settings for server:
     pass: "teamcity"
     port: 5432
 
-You can change variables in **roles/teamcity-server/defaults/main.yml**
-and hosts in **hosts**
+You can change variables in `roles/teamcity-server/defaults/main.yml`
+and hosts in `hosts`
 
 
 
