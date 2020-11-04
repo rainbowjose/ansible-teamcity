@@ -1,0 +1,49 @@
+Vagrant.configure("2") do |config|
+  
+  config.vm.define "teamcity" do |teamcity|
+    config.vm.provider "virtualbox" do |vb|
+      vb.memory = "4096"
+      vb.cpus = "4"
+    end
+    teamcity.vm.box = "ubuntu/bionic64"
+    id_rsa_pub = File.read("#{Dir.home}/.ssh/id_rsa.pub")
+    teamcity.vm.provision "copy ssh public key", type: "shell",
+      inline: "echo \"#{id_rsa_pub}\" >> /home/vagrant/.ssh/authorized_keys"
+    teamcity.vm.provision "install postgres", type: "shell",
+      inline: "sudo apt update && sudo apt install postgresql-10 -y"
+    teamcity.vm.provision "create user and db", type: "shell",
+      inline: "sudo -u postgres psql -c \"CREATE USER teamcity WITH PASSWORD 'teamcity';\" && \
+               sudo -u postgres psql -c \"CREATE DATABASE teamcity;\" && \
+               sudo -u postgres psql -c \"GRANT ALL PRIVILEGES on DATABASE teamcity to teamcity\" "
+    teamcity.vm.network "forwarded_port", id: "ssh", host: 2200, guest: 22
+    teamcity.vm.network "forwarded_port", guest: 8111, host: 8111
+    teamcity.vm.network "private_network", ip: "192.168.33.10"
+  end
+   
+  config.vm.define "teamcity_worker_1" do |teamcity_worker_1|
+    teamcity_worker_1.vm.box = "ubuntu/bionic64"
+    id_rsa_pub = File.read("#{Dir.home}/.ssh/id_rsa.pub")
+    teamcity_worker_1.vm.provision "copy ssh public key", type: "shell",
+      inline: "echo \"#{id_rsa_pub}\" >> /home/vagrant/.ssh/authorized_keys"
+    teamcity_worker_1.vm.network "forwarded_port", id: "ssh", host: 2201, guest: 22
+    teamcity_worker_1.vm.network "private_network", ip: "192.168.33.11"
+  end
+  
+  config.vm.define "teamcity_worker_2" do |teamcity_worker_2|
+    teamcity_worker_2.vm.box = "ubuntu/bionic64"
+    id_rsa_pub = File.read("#{Dir.home}/.ssh/id_rsa.pub")
+    teamcity_worker_2.vm.provision "copy ssh public key", type: "shell",
+      inline: "echo \"#{id_rsa_pub}\" >> /home/vagrant/.ssh/authorized_keys"
+    teamcity_worker_2.vm.network "forwarded_port", id: "ssh", host: 2202, guest: 22
+    teamcity_worker_2.vm.network "private_network", ip: "192.168.33.12"
+  end
+  
+  config.vm.define "teamcity_worker_3" do |teamcity_worker_3|
+    teamcity_worker_3.vm.box = "ubuntu/bionic64"
+    id_rsa_pub = File.read("#{Dir.home}/.ssh/id_rsa.pub")
+    teamcity_worker_3.vm.provision "copy ssh public key", type: "shell",
+      inline: "echo \"#{id_rsa_pub}\" >> /home/vagrant/.ssh/authorized_keys"
+    teamcity_worker_3.vm.network "forwarded_port", id: "ssh", host: 2203, guest: 22
+    teamcity_worker_3.vm.network "private_network", ip: "192.168.33.13"
+  end
+end
