@@ -43,7 +43,7 @@ Settings for agent:
 
 
 
-You can change variables in `roles/teamcity-server/defaults/main.yml`
+You can change variables in `roles/teamcity-server/defaults/main.yml` & `roles/teamcity-agent/defaults/main.yml`
 and hosts in `hosts`
 
 
