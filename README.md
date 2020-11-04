@@ -5,8 +5,8 @@
 ansible-teamcity
 =========
 
-ansible-teamcity is an [Ansible](http://ansible.com) role.
-Use this role to install [Teamcity](http://www.jetbrains.com/teamcity/) server. Tested on Ubuntu 18.04 with Teamcity 2020.1.5 .
+ansible-teamcity is an [Ansible](http://ansible.com) roles.
+Use this roles to install [Teamcity](http://www.jetbrains.com/teamcity/) server and agents. Tested on Ubuntu 18.04 with Teamcity 2020.1.5 .
 
 Requirements
 ------------
