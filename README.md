@@ -17,7 +17,6 @@ Role Variables
 --------------
 
 ## Server
-
 The role has default value that should work without modification unless you want to
 
 Settings for server:
