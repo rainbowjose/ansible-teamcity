@@ -41,7 +41,7 @@ Settings for agent:
 | teamcity_server_user_name   | `teamcity`         | Teamcity Adminin User      |
 | teamcity_server_user_passwd | `teamcity`         | Teamcity Admin Password    |
 
-
+--------------
 
 You can change variables in `roles/teamcity-server/defaults/main.yml` & `roles/teamcity-agent/defaults/main.yml`
 and hosts in `hosts`
