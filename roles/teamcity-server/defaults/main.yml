@@ -1,0 +1,70 @@
+---
+# Java version
+java_major_version: 11
+
+# Teamcity Version
+teamcity_server_version: 2020.1.5
+teamcity_server_sha256: da9b2a919decee8f50168609ea954338278bd8b22b82bce9f5edf5024f2ba7cb
+
+# TeamCity User
+teamcity_server_su_user: teamcity
+teamcity_server_su_password: teamcity
+
+# TeamCity Dirs
+teamcity_server_install_dir: /opt
+teamcity_server_dir: "{{ teamcity_server_install_dir }}/TeamCity"
+teamcity_server_data_dir: "{{ teamcity_server_dir }}/BuildServer"
+teamcity_server_plugins_dir: "{{ teamcity_server_data_dir }}/plugins"
+teamcity_server_config_dir: "{{ teamcity_server_data_dir }}/config"
+
+# TeamCity Plugins
+teamcity_server_plugins: []
+install_plugins: no
+
+# Teamcity Licenses
+teamcity_server_license_keys: []
+
+# PostgreSQL JDBC Driver
+teamcity_server_postgres_jdbc_version: 42.2.18
+teamcity_server_postgres_jdbc_url: "https://jdbc.postgresql.org/download/postgresql-{{ teamcity_server_postgres_jdbc_version }}.jar"
+
+# MySQL Connector
+teamcity_server_mysql_connector_version: 5.1.40
+teamcity_server_mysql_connector_dir: "/opt/mysql-connector"
+
+# MySQL Database User
+teamcity_server_mysql_db_user: teamcity
+teamcity_server_mysql_db_password: teamcity
+teamcity_server_mysql_db_name: teamcity
+
+# MySQL DB type: Available values: local, mysql, postgresql
+teamcity_server_db_type: "postgresql"
+
+teamcity_db:
+  type: "{{ teamcity_server_db_type }}"
+  host: "localhost"
+  name: "teamcity"
+  user: "teamcity"
+  pass: "teamcity"
+  port: 5432
+
+teamcity_hostname: teamcity.example.org
+
+teamcity_nginx:
+  proxy: false
+  config_path: /etc/nginx/conf.d/teamcity.conf
+  hostname: "{{ teamcity_hostname }}"
+  ssl:
+      configure: false
+      cert: /etc/letsencrypt/live/{{ teamcity_hostname }}/fullchain.pem
+      key:  /etc/letsencrypt/live/{{ teamcity_hostname }}/privkey.pem
+  port: 443
+
+teamcity_server_groups: "www-data"
+
+# MySQL DB Server
+teamcity_server_mysql_database_url: "{{ teamcity_db.host }}"
+teamcity_server_mysql_database_port: "{{ teamcity_db.port }}"
+
+# JDBC Driver Dir
+teamcity_server_jdbc_dir: "{{ teamcity_server_data_dir }}/lib/jdbc"

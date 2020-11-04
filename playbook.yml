@@ -1,0 +1,7 @@
+---
+- hosts: teamcity-servers
+  become: yes 
+  roles:
+    - java
+    - teamcity-server
+

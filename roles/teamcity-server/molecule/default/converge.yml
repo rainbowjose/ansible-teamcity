@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include teamcity-server"
+      include_role:
+        name: "teamcity-server"
