@@ -17,7 +17,6 @@ Role Variables
 --------------
 
 ## Server
-
 The role has default value that should work without modification unless you want to
 
 Settings for server:
@@ -25,12 +24,13 @@ Settings for server:
     teamcity_server_version: 2020.1.5
 
 External database settings for server:
+| Variable name               | Default value      | Description                |
+|-----------------------------|--------------------|----------------------------|
+| host                        |  `localhost`       | DB hostname                |
+| name                        |  `teamcity`        | DB name                    |
+| user                        |  `teamcity`        | DB username                |
+| port                        |  `5432`            | DB port                    |
 
-    host: "localhost"
-    name: "teamcity"
-    user: "teamcity"
-    pass: "teamcity"
-    port: 5432
 ## Agent
 Settings for agent:
 | Variable name               | Default value      | Description                |
