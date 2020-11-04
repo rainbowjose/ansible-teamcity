@@ -15,6 +15,9 @@ Requirements
 
 Role Variables
 --------------
+
+## Server
+
 The role has default value that should work without modification unless you want to
 
 Settings for server:
@@ -28,6 +31,17 @@ External database settings for server:
     user: "teamcity"
     pass: "teamcity"
     port: 5432
+## Agent
+Settings for agent:
+| Variable name               | Default value      | Description                |
+|-----------------------------|--------------------|----------------------------|
+| teamcity_agent_server_url   |  `localhost`       | TeamCity Server URL        |
+| teamcity_agent_server_port  |  `8111`            | TeamCity Server Port       |
+| teamcity_agent_install_dir  |  `/opt/buildAgent` | TeamCity Agent Install Dir |
+| teamcity_server_user_name   | `teamcity`         | Teamcity Adminin User      |
+| teamcity_server_user_passwd | `teamcity`         | Teamcity Admin Password    |
+
+
 
 You can change variables in `roles/teamcity-server/defaults/main.yml`
 and hosts in `hosts`
