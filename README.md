@@ -1,4 +1,5 @@
 
+  
 ansible-teamcity
 =========
 
@@ -58,6 +59,12 @@ $ git clone git@github.com:rainbowjose/ansible-teamcity.git
 ```
 
 The code should reside in the roles directory of ansible ( See [ansible documentation](http://www.ansibleworks.com/docs/playbooks.html#roles) for more information on roles ), in a folder jenkins.
+
+### Create vagrant environment
+```
+cd vagrant
+vagrant up
+```
 
 ### Edit a host file
 
