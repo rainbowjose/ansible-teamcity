@@ -71,7 +71,11 @@ with
 
 ```ini
 [teamcity-servers]
-vagrant@127.0.0.1 ansible_port=2200
+vagrant@192.168.33.10
+[teamcity-agent-servers]
+vagrant@192.168.33.11
+vagrant@192.168.33.12
+vagrant@192.168.33.13
 ```
 
 ### Run the playbook
