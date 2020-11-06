@@ -1,12 +1,12 @@
 ---
-- hosts: teamcity-servers
-  become: yes 
+
+- hosts: teamcity_servers
+  become: true
   roles:
     - java
     - teamcity-server
-- hosts: teamcity-agent-servers
-  become: yes 
+- hosts: teamcity_agent_servers
+  become: true
   roles:
     - java
     - teamcity-agent
-

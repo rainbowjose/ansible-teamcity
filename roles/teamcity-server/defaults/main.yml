@@ -42,7 +42,7 @@ teamcity_server_db_type: "postgresql"
 
 teamcity_db:
   type: "{{ teamcity_server_db_type }}"
-  host: "localhost"
+  host: "172.16.0.102"
   name: "teamcity"
   user: "teamcity"
   pass: "teamcity"

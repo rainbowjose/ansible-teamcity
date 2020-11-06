@@ -1,6 +1,6 @@
-[teamcity-servers]
-vagrant@192.168.33.10
-[teamcity-agent-servers]
-vagrant@192.168.33.11
-vagrant@192.168.33.12
-vagrant@192.168.33.13
+[teamcity_servers]
+172.16.0.85
+[teamcity_agent_servers]
+172.16.0.117
+172.16.0.83
+172.16.0.111
