@@ -1,9 +1,12 @@
 
+
+
+  
 ansible-teamcity
 =========
 
-ansible-teamcity is an [Ansible](http://ansible.com) role.
-Use this role to install [Teamcity](http://www.jetbrains.com/teamcity/) server.
+ansible-teamcity is an [Ansible](http://ansible.com) roles.
+Use this roles to install [Teamcity](http://www.jetbrains.com/teamcity/) server and agents. Tested on Ubuntu 18.04 with Teamcity 2020.1.5 .
 
 Requirements
 ------------
@@ -43,8 +46,9 @@ Settings for agent:
 
 --------------
 
-You can change variables in `roles/teamcity-server/defaults/main.yml` & `roles/teamcity-agent/defaults/main.yml`
-and hosts in `hosts`
+ - You can change variables in  
+   ```roles/teamcity-server/defaults/main.yml```, 
+   ```roles/teamcity-agent/defaults/main.yml``` and hosts in ```hosts```
 
 
 
@@ -58,6 +62,12 @@ $ git clone git@github.com:rainbowjose/ansible-teamcity.git
 ```
 
 The code should reside in the roles directory of ansible ( See [ansible documentation](http://www.ansibleworks.com/docs/playbooks.html#roles) for more information on roles ), in a folder jenkins.
+
+### Create vagrant environment
+```
+cd vagrant
+vagrant up
+```
 
 ### Edit a host file
 
